@@ -19,7 +19,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/djpohly/dwl"
 #changelog=""
 distfiles="https://github.com/ANobody13/dwl-patched/releases/download/v${version}-custom/${pkgname}-v${version}-custom.tar.gz"
-checksum=
+checksum=83445738c1ac1b2f25ebb8ef09cae595f876e22a5dc84c75695b68f1e205a89e
 
 pre_build() {
 	if [ -e ${FILESDIR} ]; then
