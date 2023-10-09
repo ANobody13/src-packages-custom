@@ -1,8 +1,8 @@
-Common subdirectories: dwl-0.4/.git and dwl-0.4/.git
-Common subdirectories: dwl-0.4/.github and dwl-0.4/.github
-diff -N1p dwl-0.4/config.def.h dwl-0.4/config.def.h
+Common subdirectories: dwl-0.4/.git and dwl-custom/.git
+Common subdirectories: dwl-0.4/.github and dwl-custom/.github
+diff -N1p dwl-0.4/config.def.h dwl-custom/config.def.h
 *** dwl-0.4/config.def.h	2023-10-09 09:24:27.000000000 -0400
---- dwl-0.4/config.def.h	2023-10-09 11:44:07.989656119 -0400
+--- dwl-custom/config.def.h	2023-10-09 12:17:05.467400530 -0400
 ***************
 *** 1,6 ****
   /* Taken from https://github.com/djpohly/dwl/issues/466 */
@@ -214,27 +214,15 @@ diff -N1p dwl-0.4/config.def.h dwl-0.4/config.def.h
 + static const char *printcmd[] = { "/bin/sh", "-c", "/home/anobody/Scripts/take_picture.sh", NULL };
   
 *************** static const Key keys[] = {
-*** 131,135 ****
+*** 131,155 ****
   	/* modifier                  key                 function        argument */
 ! 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
   	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
 ! 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0}},
-  	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
---- 144,154 ----
-  	/* modifier                  key                 function        argument */
-! 	{ MODKEY,                    XKB_KEY_r,          spawn,          {.v = menucmd} },
-  	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
-! 	{ MODKEY,            XKB_KEY_e,     spawn,          {.v = emacscmd} },
-! 	{ MODKEY,		     XKB_KEY_w,          spawn,          {.v = browsercmd} },
-! 	{ MODKEY,		     XKB_KEY_g,          spawn,          {.v = steamcmd} },
-! 	{ MODKEY,		     XKB_KEY_End,        spawn,          {.v = lockcmd} },
-! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_End,        spawn,          {.v = logoutcmd} },
-! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Print,      spawn,          {.v = printcmd} },
-! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_b,          togglebar,      {0}},
-  	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
-*************** static const Key keys[] = {
-*** 138,155 ****
-  	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          movestack,      {.i = -1} },
+! 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
+! 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,          movestack,      {.i = +1} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          movestack,      {.i = -1} },
 ! 	{ MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
 ! 	{ MODKEY,                    XKB_KEY_d,          incnmaster,     {.i = -1} },
 ! 	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05} },
@@ -252,12 +240,25 @@ diff -N1p dwl-0.4/config.def.h dwl-0.4/config.def.h
 ! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
 ! 	{ MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
   	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
---- 157,174 ----
-  	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          movestack,      {.i = -1} },
+--- 144,174 ----
+  	/* modifier                  key                 function        argument */
+! 	{ MODKEY,                    XKB_KEY_r,          spawn,          {.v = menucmd} },
+  	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
+! 	{ MODKEY,            	     XKB_KEY_b,     spawn,          {.v = emacscmd} },
+! 	{ MODKEY,		     XKB_KEY_w,          spawn,          {.v = browsercmd} },
+! 	{ MODKEY,		     XKB_KEY_g,          spawn,          {.v = steamcmd} },
+! 	{ MODKEY,		     XKB_KEY_End,        spawn,          {.v = lockcmd} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_End,        spawn,          {.v = logoutcmd} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Print,      spawn,          {.v = printcmd} },
+! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_b,          togglebar,      {0}},
+! 	{ MODKEY,                    XKB_KEY_n,          focusstack,     {.i = +1} },
+! 	{ MODKEY,                    XKB_KEY_e,          focusstack,     {.i = -1} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_N,          movestack,      {.i = +1} },
+! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          movestack,      {.i = -1} },
 ! 	{ MODKEY,                    XKB_KEY_equal,          incnmaster,     {.i = +1} },
 ! 	{ MODKEY,                    XKB_KEY_minus,          incnmaster,     {.i = -1} },
-! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_h,          setmfact,       {.f = -0.05} },
-! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_l,          setmfact,       {.f = +0.05} },
+! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_m,          setmfact,       {.f = -0.05} },
+! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_i,          setmfact,       {.f = +0.05} },
   	{ MODKEY,                    XKB_KEY_Return,     zoom,           {0} },
   	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
 ! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_g,          togglegaps,     {0} },
@@ -266,9 +267,9 @@ diff -N1p dwl-0.4/config.def.h dwl-0.4/config.def.h
   	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,          killclient,     {0} },
   	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
 ! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_f,          setlayout,      {.v = &layouts[2]} },
-! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
-! 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {0} },
+! 	{ MODKEY|WLR_MODIFIER_ALT,   XKB_KEY_h,          setlayout,      {.v = &layouts[2]} },
+! 	{ MODKEY,                    XKB_KEY_h,          setlayout,      {0} },
 ! 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_f,         togglefloating, {0} },
 ! 	{ MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
   	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
-Common subdirectories: dwl-0.4/protocols and dwl-0.4/protocols
+Common subdirectories: dwl-0.4/protocols and dwl-custom/protocols
