@@ -18,7 +18,7 @@ maintainer="anobody <anobody@email.me>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/djpohly/dwl"
 #changelog=""
-distfiles="https://github.com/ANobody13/dwl-custom/releases/download/v${version}-custom/${pkgname}-v${version}-custom.tar.gz"
+distfiles="https://github.com/ANobody13/dwl-patched/releases/download/v${version}-custom/${pkgname}-v${version}-custom.tar.gz"
 checksum=
 
 pre_build() {
