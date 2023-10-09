@@ -19,8 +19,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/djpohly/dwl"
 #changelog=""
 distfiles="https://github.com/ANobody13/dwl-patched/releases/download/v${version}-custom/${pkgname}-v${version}-custom.tar.gz"
-checksum=83445738c1ac1b2f25ebb8ef09cae595f876e22a5dc84c75695b68f1e205a89e
-
+checksum=6319994eed83e22c75e77a4c8021f5bd1d478fe2d959bac358b8c4427bbd31d1
 pre_build() {
 	if [ -e ${FILESDIR} ]; then
 		[ -e ${FILESDIR}/config.h ] && cp ${FILESDIR}/config.h config.h
